@@ -26,7 +26,6 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 car.move(display.getSize());
-
                 display.repaint();
 
             }

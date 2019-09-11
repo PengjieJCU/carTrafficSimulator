@@ -11,8 +11,7 @@ public class Road extends JPanel{
 
     public void paint(Graphics g){
         System.out.println("OOOOOOOOO");
-        g.fillRect(0,0,800,10);
-        g.setColor(Color.gray);
+        g.fillRect(0,0,800,60);
 
     }
 

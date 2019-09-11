@@ -21,13 +21,14 @@ public class Display extends JPanel {
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
 
-        graphics.setColor(Color.BLUE);
+        graphics.setColor(Color.gray);
         graphics.setFont(font);
 
 //        graphics.drawString("hello", 100, 100);
 
         if (car != null) {
             car.draw(graphics);
+            new Road().paint(graphics);
         }
 
 //        graphics.drawString("world", 200, 100);
