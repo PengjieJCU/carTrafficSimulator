@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 
 // this is what an anonymous inner class does... kind of :)
@@ -19,7 +17,10 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("CarTrafficSimulator");
         Display display = new Display();
-        Car car = new Car(50, Color.RED);
+        Vehicle car = new Vehicle(50, Color.RED);
+//        TrafficLight trafficBoard = new TrafficLight();
+//        frame.add(trafficBoard, BorderLayout.WEST);
+
 
         // frame-by-frame animation loop
         Timer timer = new Timer(10, new ActionListener() {
@@ -27,7 +28,6 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 car.move(display.getSize());
                 display.repaint();
-
             }
         });
         timer.start();
@@ -41,13 +41,13 @@ public class Main {
 //                }
 //            }
 //        });
-        frame.setSize(800,800);
+        frame.setSize(1000,800);
         frame.add(display);
         display.setCar(car);
 
 
 
-        frame.setBackground(new Color(0,0,0));
+//        frame.setBackground(new Color(0,0,0));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);

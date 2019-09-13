@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.Random;
 
-class Car {
+class Vehicle {
     private int x,y;
     private int xDir, yDir;
 
@@ -10,9 +10,9 @@ class Car {
 
     private static final Random random = new Random();
 
-    Car(int size, Color color) {
-        x = 0;
-        y = 0;
+    Vehicle(int size, Color color) {
+        x = 100;
+        y = 150;
         xDir = 1;
         yDir = 0;
         this.size = size;
@@ -40,7 +40,7 @@ class Car {
         // move from left to right side
             if ((xDir > 0 && x+this.size/2 > 400)
                 || (xDir < 0 && x-this.size/2 < 0)) {
-            xDir = -1 * xDir;
+            xDir = 1 * xDir;
         }
 
         // bounce on top or bottom edge
