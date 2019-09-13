@@ -5,61 +5,48 @@ class Vehicle {
     private int x,y;
     private int xDir, yDir;
 
-    private int size;
+    private int width;
+    private int length;
     private Color color;
 
     private static final Random random = new Random();
 
-    Vehicle(int size, Color color) {
-        x = 100;
-        y = 150;
+    Vehicle(int x, int y, int width, int length, Color color) {
         xDir = 1;
         yDir = 0;
-        this.size = size;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.length = length;
         this.color = color;
     }
 
-//        void toggleMotion() {
-//            if (xDir != 0) {
-//                xDir = 0;
-//            } else {
-//                xDir = 10;
-//            }
-//            if (yDir != 0) {
-//                yDir = 0;
-//            } else {
-//                yDir = 5;
-//            }
-//        }
+    void stop(){
+        //if (x == 350){
+        xDir = 0;
+        yDir = 0;}
+    //}
 
-        void move(Dimension size) {
+    void move(Dimension size) {
         // update position based on current direction
         x = x + xDir;
         y = y + yDir;
 
-        // move from left to right side
-            if ((xDir > 0 && x+this.size/2 > 400)
-                || (xDir < 0 && x-this.size/2 < 0)) {
-            xDir = 1 * xDir;
-        }
 
-        // bounce on top or bottom edge
-//        if ((yDir > 0 && y+this.size/2 > size.height)
-//                || (yDir < 0 && y-this.size/2 < 0)) {
-//            yDir = -1 * yDir;
-//        }
+        // move from left to right side
+        if ((xDir > 0 && x+this.width /2 > 800)
+                || (xDir < 0 && x-this.width /2 < 0))
+        {
+            xDir = -1 * xDir;
+
+        }
     }
 
     void draw(Graphics graphics) {
-//        int topLeftX = x;
-//        int topLeftY = y ;
-//        //int insetSize = 5 + random.nextInt(16);
-
         Graphics localGraphics = graphics.create(); // isolate changes here for: colour, transform, etc.
         localGraphics.setColor(color);
-        localGraphics.fillRect(x, y,
-                size , size );
-        //localGraphics.drawOval(topLeftX, topLeftY, size, size);
+        localGraphics.fillRect(x, y, width, length);
+        //localGraphics.drawOval(topLeftX, topLeftY, width, width);
         localGraphics.dispose();
     }
 }
