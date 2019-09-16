@@ -32,14 +32,15 @@ public class Main {
 
                 countdown = countdown - 1;
 
-                if(countdown == -1){
+                if(countdown == -1) {
                     countdown = 3;
                     trafficBoard.setBackground(Color.RED);
                     car.stop();
-                    if(countdown == -1){
-                        car.move(display.getSize());
-                        new TrafficLight().repaint();
-                    }
+                }else if(countdown == -1){
+                    trafficBoard.setBackground(Color.GREEN);
+                    car.move(display.getSize());
+                    new TrafficLight().repaint();
+
                 }
 
 
