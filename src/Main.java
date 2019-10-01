@@ -31,21 +31,31 @@ public class Main {
             public void run() {
 
                 countdown = countdown - 1;
+                switch (countdown){
+                    case -1:
+                        trafficBoard.setBackground(Color.RED);
+                        car.stop();
+                        countdown = 12;
+                        break;
+                    case 6:
+                        trafficBoard.setBackground(Color.GREEN);
+                        car.move(display.getSize());
+                        display.repaint();
 
-                if(countdown == -1) {
-                    countdown = 3;
-                    trafficBoard.setBackground(Color.RED);
-                    car.stop();
-                }else if(countdown == -1){
-                    trafficBoard.setBackground(Color.GREEN);
-                    car.move(display.getSize());
-                    new TrafficLight().repaint();
+//                        new TrafficLight().repaint();
+                        break;
 
                 }
-
-
-
-
+//                if(countdown == -1) {
+//                    trafficBoard.setBackground(Color.RED);
+//                    car.stop();
+//                    countdown = 3;
+//                    if (countdown == 1){
+//                        trafficBoard.setBackground(Color.GREEN);
+//                        car.move(display.getSize());
+//                        new TrafficLight().repaint();
+//                    }
+//                }
                 countdownText.setText(String.valueOf(countdown));
 
             }
