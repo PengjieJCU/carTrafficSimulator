@@ -15,17 +15,23 @@ public class Main {
         final Color[] color = {new Color(0, 255, 0)};
 
 
+
         trafficBoard.setFocusable(true);
         trafficBoard.setPreferredSize(new Dimension(300,80));
-        trafficBoard.setBackground(color[0]);
+        trafficBoard.setBackground(Color.GREEN);
         trafficBoard.add(countdownText);
+
+
+
 
         //TrafficLight trafficLight = new TrafficLight();
         Vehicle car = new Vehicle(100,150,70, 35, Color.RED);
+//        Vehicle car2 = new Vehicle(180,300, 70,35, Color.BLUE);
 
         java.util.Timer timer2 = new java.util.Timer();
 
         timer2.scheduleAtFixedRate(new TimerTask() {
+            Color light_color = Color.GREEN;
             int countdown = 3;
             @Override
             public void run() {
@@ -33,19 +39,28 @@ public class Main {
                 countdown = countdown - 1;
                 switch (countdown){
                     case -1:
-                        trafficBoard.setBackground(Color.RED);
-                        car.stop();
+                        light_color = Color.RED;
+                        trafficBoard.setBackground(light_color);
                         countdown = 12;
                         break;
                     case 6:
-                        trafficBoard.setBackground(Color.GREEN);
-                        car.move(display.getSize());
-                        display.repaint();
-
-//                        new TrafficLight().repaint();
+                        light_color = Color.GREEN;
+                        trafficBoard.setBackground(light_color);
+                        new TrafficLight().repaint();
                         break;
-
                 }
+                if (Color.RED.equals(light_color)) {
+                    car.stop();
+//                    car2.stop();
+                } else if (Color.GREEN.equals(light_color)) {
+                    car.set_xDir();
+                    car.move(display.getSize());
+//                    car2.set_xDir();
+//                    car2.move(display.getSize());
+                }
+
+
+
 //                if(countdown == -1) {
 //                    trafficBoard.setBackground(Color.RED);
 //                    car.stop();
@@ -68,6 +83,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 car.move(display.getSize());
+//                car2.move(display.getSize());
                 display.repaint();
 
             }
@@ -80,6 +96,7 @@ public class Main {
 
         //frame.add(trafficLight,BorderLayout.WEST);
         display.setCar(car);
+
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);

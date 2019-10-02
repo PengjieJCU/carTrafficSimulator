@@ -23,18 +23,26 @@ class Vehicle {
 
     void stop(){
         //if (x == 350){
+        System.out.println("**************");
         xDir = 0;
         yDir = 0;}
+
+
     //}
+
+    void set_xDir(){
+        xDir = 1;
+    }
 
     void move(Dimension size) {
         // update position based on current direction
+
         x = x + xDir;
         y = y + yDir;
 
 
         // move from left to right side
-        if ((xDir > 0 && x+this.width /2 > 800)
+        if ((xDir > 0 && x == this.width/2)
                 || (xDir < 0 && x-this.width /2 < 0))
         {
             xDir = -1 * xDir;

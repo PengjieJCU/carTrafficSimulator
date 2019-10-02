@@ -16,7 +16,7 @@ public class Display extends JPanel {
         this.car = car;
     }
 
-
+    
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
