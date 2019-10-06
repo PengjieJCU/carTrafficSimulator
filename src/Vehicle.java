@@ -33,6 +33,7 @@ class Vehicle {
     void set_xDir(){
         xDir = 1;
     }
+    void set_xDir2(){xDir = -1;}
 
     void move(Dimension size) {
         // update position based on current direction
@@ -41,13 +42,14 @@ class Vehicle {
         y = y + yDir;
 
 
-        // move from left to right side
-        if ((xDir > 0 && x == this.width/2)
-                || (xDir < 0 && x-this.width /2 < 0))
-        {
-            xDir = -1 * xDir;
 
-        }
+    }
+
+    void moveToLeft(Dimension size){
+        x = x - xDir;
+        y = y - yDir;
+
+
     }
 
     void draw(Graphics graphics) {

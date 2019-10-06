@@ -2,15 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Road extends JPanel{
-
-//    public void road(){
-////        setFocusable(true);
-////        setPreferredSize(new Dimension(600,200));
-////        setBackground(new Color(0,0,0));
-//    }
-
-    public void paint(Graphics g){
-//        System.out.println("OOOOOOOOO");
+    public void paintOneway(Graphics g){
         g.drawLine(100,100,400,100);
         g.drawLine(100,150,155,150);
         g.drawLine(175,150,230,150);
@@ -27,7 +19,27 @@ public class Road extends JPanel{
 
     }
 
+    public void paintThreeways(Graphics g){
+        g.drawLine(100,200,500,200);//横线
+        g.drawLine(133,250,213,250);
+        g.drawLine(246,250,326,250);
+        g.drawLine(359,250,439,250);
+        g.drawLine(472,250,500,250);
+        g.drawLine(100,300,500,300);//横线
 
+        g.drawLine(500,10,500,200);//短竖线
+        g.drawLine(620,10,620,600);//竖线
+        g.drawLine(500,300,500,600);//短竖线
+        g.drawLine(560,10,560,80);
+        g.drawLine(560,120,560,200);
+        g.drawLine(560,300,560,370);
+        g.drawLine(560,410,560,480);
+        g.drawLine(560,520,560,600);
+    }
+
+//    public static void main(String[] args) {
+//        new Road().paintThreeways();
+//    }
 //    public void paint(Graphics g){
 //        System.out.println("OOOOOOOOO");
 //        g.drawLine(100,100,400,100);

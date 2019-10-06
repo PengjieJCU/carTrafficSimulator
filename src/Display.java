@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class Display extends JPanel {
     private Vehicle car;
+    private Vehicle car1;
 //    private static final Font font = new Font("Arial",Font.BOLD, 24);
 
 
@@ -16,13 +17,18 @@ public class Display extends JPanel {
         this.car = car;
     }
 
+    void setCar1(Vehicle car1){
+        this.car1 = car1;
+    }
+
     
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
 
         car.draw(graphics);
-        new Road().paint(graphics);
+        car1.draw(graphics);
+        new Road().paintOneway(graphics);
         new TrafficLight().paint(graphics);
 
 
