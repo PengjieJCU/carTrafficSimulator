@@ -6,6 +6,8 @@ public class Display extends JPanel {
     private Vehicle car2;
     private Vehicle car3;
     private Vehicle car4;
+    private Vehicle car5;
+    private Vehicle car6;
 //    private static final Font font = new Font("Arial",Font.BOLD, 24);
 
 
@@ -24,6 +26,8 @@ public class Display extends JPanel {
     }
     void setCar3(Vehicle car3){this.car3 = car3;}
     void setCar4(Vehicle car4){this.car4 = car4;}
+    void setCar5(Vehicle car5){this.car5 = car5;}
+    void setCar6(Vehicle car6){this.car6 = car6;}
 
     
     @Override
@@ -34,6 +38,8 @@ public class Display extends JPanel {
 //        car2.draw(graphics);
         car3.draw(graphics);
         car4.draw(graphics);
+        car5.draw(graphics);
+        car6.draw(graphics);
 //        new Road().paintOneway(graphics);
         new Road().paintThreeways(graphics);
         new TrafficLight().paint(graphics);
