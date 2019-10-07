@@ -10,17 +10,23 @@ public class Main {
     Display display = new Display();
 //    Display display1 = new Display();
     JPanel trafficBoard = new JPanel();
+    JPanel trafficBoard2 = new JPanel();
     JLabel countdownText = new JLabel();
     JButton changeRoad = new JButton("Three roads mode");
-    Vehicle car = new Vehicle(100, 150, 70, 35, Color.RED);
-    Vehicle car1 = new Vehicle(850,100, 70,35, Color.BLUE);
     final Color[] color = {new Color(0, 255, 0)};
 
     public void oneWay() {
+        Vehicle car = new Vehicle(100, 150, 70, 35, Color.RED);
+        Vehicle car2 = new Vehicle(850,100, 70,35, Color.BLUE);
+        //frame.add(trafficLight,BorderLayout.WEST);
+        display.setCar(car);
+        display.setCar2(car2);
+
         trafficBoard.setFocusable(true);
         trafficBoard.setPreferredSize(new Dimension(300, 80));
         trafficBoard.setBackground(Color.GREEN);
         trafficBoard.add(countdownText);
+        frame.add(trafficBoard, BorderLayout.NORTH);
 
         //TrafficLight trafficLight = new TrafficLight();
 
@@ -37,9 +43,9 @@ public class Main {
                     case -1:
                         light_color = Color.RED;
                         trafficBoard.setBackground(light_color);
-                        countdown = 12;
+                        countdown = 14;
                         break;
-                    case 6:
+                    case 7:
                         light_color = Color.GREEN;
                         trafficBoard.setBackground(light_color);
                         new TrafficLight().repaint();
@@ -47,12 +53,12 @@ public class Main {
                 }
                 if (Color.RED.equals(light_color)) {
                     car.stop();
-                    car1.stop();
+                    car2.stop();
                 } else if (Color.GREEN.equals(light_color)) {
                     car.set_xDir();
                     car.move(display.getSize());
-                    car1.set_xDir2();
-                    car1.moveToLeft(display.getSize());
+                    car2.set_xDir2();
+                    car2.moveToLeft(display.getSize());
                 }
                 countdownText.setText(String.valueOf(countdown));
 
@@ -64,7 +70,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 car.move(display.getSize());
-                car1.move(display.getSize());
+                car2.move(display.getSize());
                 display.repaint();
 //                display.repaint();
             }
@@ -73,19 +79,65 @@ public class Main {
     }
 
     public void threeWays(){
+        Vehicle car3 = new Vehicle(500,485,35,70,Color.gray);
+        Vehicle car4 = new Vehicle(585,-55,35,70,Color.yellow);
+        display.setCar3(car3);
+        display.setCar4(car4);
 
+        trafficBoard.setFocusable(true);
+        trafficBoard.setPreferredSize(new Dimension(300, 80));
+        trafficBoard.setBackground(Color.GREEN);
+        trafficBoard.add(countdownText);
+        frame.add(trafficBoard, BorderLayout.NORTH);
+
+        java.util.Timer timer2 = new java.util.Timer();
+        timer2.scheduleAtFixedRate(new TimerTask() {
+            Color light_color = Color.GREEN;
+            int countDown = 3;
+
+            @Override
+            public void run() {
+                countDown = countDown - 1;
+                switch (countDown){
+                    case -1:
+                        light_color = Color.red;
+                        trafficBoard.setBackground(light_color);
+                        countDown = 14;
+                        break;
+                    case 7:
+                        light_color = Color.GREEN;
+                        trafficBoard.setBackground(light_color);
+                        new TrafficLight().repaint();
+                        break;
+                }
+                if (Color.red.equals(light_color)){
+                    car3.stop();
+                    car4.stop();
+                }else if (Color.GREEN.equals(light_color)){
+                    car3.set_yDir();
+                    car3.moveToTop(display.getSize());
+                    car4.set_yDir2();
+                    car4.moveToBottom(display.getSize());
+                }
+                countdownText.setText(String.valueOf(countDown));
+            }
+
+        },0,1000);
+        Timer timer = new Timer(10, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                car3.moveToTop(display.getSize());
+                car4.moveToBottom(display.getSize());
+                display.repaint();
+            }
+        });
+        timer.start();
     }
 
     public void showGUI(){
         frame.add(changeRoad, BorderLayout.SOUTH);
         frame.setSize(1000,800);
         frame.add(display, BorderLayout.CENTER);
-        frame.add(trafficBoard, BorderLayout.NORTH);
-
-        //frame.add(trafficLight,BorderLayout.WEST);
-        display.setCar(car);
-        display.setCar1(car1);
-
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
@@ -93,7 +145,8 @@ public class Main {
 
     public static void main(String[] args) {
         Main main = new Main();
-        main.oneWay();
+//        main.oneWay();
+        main.threeWays();
         main.showGUI();
     }
 

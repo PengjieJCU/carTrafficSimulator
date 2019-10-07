@@ -34,22 +34,34 @@ class Vehicle {
         xDir = 1;
     }
     void set_xDir2(){xDir = -1;}
+    void set_yDir(){
+        xDir = 0;
+        yDir = 1;
+    }
+    void set_yDir2() {
+        xDir = 0;
+        yDir = -1;
+    }
 
     void move(Dimension size) {
         // update position based on current direction
-
         x = x + xDir;
         y = y + yDir;
-
-
-
     }
 
     void moveToLeft(Dimension size){
         x = x - xDir;
         y = y - yDir;
+    }
 
+    void moveToTop(Dimension size){
+        x = x - xDir;
+        y = y - yDir;
+    }
 
+    void moveToBottom(Dimension size){
+        x = x - xDir;
+        y = y - yDir;
     }
 
     void draw(Graphics graphics) {

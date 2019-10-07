@@ -3,7 +3,9 @@ import java.awt.*;
 
 public class Display extends JPanel {
     private Vehicle car;
-    private Vehicle car1;
+    private Vehicle car2;
+    private Vehicle car3;
+    private Vehicle car4;
 //    private static final Font font = new Font("Arial",Font.BOLD, 24);
 
 
@@ -17,18 +19,23 @@ public class Display extends JPanel {
         this.car = car;
     }
 
-    void setCar1(Vehicle car1){
-        this.car1 = car1;
+    void setCar2(Vehicle car2){
+        this.car2 = car2;
     }
+    void setCar3(Vehicle car3){this.car3 = car3;}
+    void setCar4(Vehicle car4){this.car4 = car4;}
 
     
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
 
-        car.draw(graphics);
-        car1.draw(graphics);
-        new Road().paintOneway(graphics);
+//        car.draw(graphics);
+//        car2.draw(graphics);
+        car3.draw(graphics);
+        car4.draw(graphics);
+//        new Road().paintOneway(graphics);
+        new Road().paintThreeways(graphics);
         new TrafficLight().paint(graphics);
 
 
