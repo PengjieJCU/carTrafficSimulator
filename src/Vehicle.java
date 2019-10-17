@@ -21,6 +21,8 @@ class Vehicle {
         this.color = color;
     }
 
+
+
     void stop(){
         //if (x == 350){
         System.out.println("**************");
@@ -38,6 +40,7 @@ class Vehicle {
         xDir = 0;
         yDir = 1;
     }
+
     void set_yDir2() {
         xDir = 0;
         yDir = -1;
@@ -47,7 +50,18 @@ class Vehicle {
         // update position based on current direction
         x = x + xDir;
         y = y + yDir;
+
+        if(x>=500){
+
+            this.width = 35;
+            this.length = 70;
+
+            xDir = 0;
+            yDir = -1;
+        }
     }
+
+
 
     void moveToLeft(Dimension size){
         x = x - xDir;

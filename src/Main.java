@@ -126,15 +126,17 @@ public class Main {
                     car4.stop();
                     car5.set_xDir();
                     car6.set_xDir();
+
                     car5.move(display.getSize());
+
                     car6.move(display.getSize());
                 }else if (Color.GREEN.equals(light_color)){
                     car3.set_yDir();
                     car3.moveToTop(display.getSize());
                     car4.set_yDir2();
                     car4.moveToBottom(display.getSize());
-                    car5.stop();
-                    car6.stop();
+//                    car5.stop();
+//                    car6.stop();
                 }
                 countdownText.setText(String.valueOf(countDown));
             }
