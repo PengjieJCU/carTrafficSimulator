@@ -61,8 +61,6 @@ class Vehicle {
         }
     }
 
-
-
     void moveToLeft(Dimension size){
         x = x - xDir;
         y = y - yDir;
@@ -76,6 +74,42 @@ class Vehicle {
     void moveToBottom(Dimension size){
         x = x - xDir;
         y = y - yDir;
+    }
+
+    void moveToRightAndBottom(Dimension size){
+        x = x + xDir;
+        y = y + yDir;
+
+        if (x > 570){
+            this.width = 35;
+            this.length = 70;
+            xDir = 0;
+            yDir = 1;
+        }
+    }
+
+    void moveToTopAndLeft(Dimension size){
+        x = x + xDir;
+        y = y + yDir;
+
+        if (y < 265){
+            this.width = 70;
+            this.length = 35;
+            xDir = -1;
+            yDir = 0;
+        }
+    }
+
+    void moveToBottonAndLeft(Dimension size){
+        x = x + xDir;
+        y = y + yDir;
+
+        if (y > 250){
+            this.width = 70;
+            this.length = 35;
+            xDir = -1;
+            yDir = 0;
+        }
     }
 
     void draw(Graphics graphics) {
