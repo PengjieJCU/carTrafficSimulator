@@ -46,6 +46,11 @@ class Vehicle {
         yDir = -1;
     }
 
+    void oneWayMove(Dimension size){
+        x = x + xDir;
+        y = y + yDir;
+
+    }
     void move(Dimension size) {
         // update position based on current direction
         x = x + xDir;
@@ -62,8 +67,8 @@ class Vehicle {
     }
 
     void moveToLeft(Dimension size){
-        x = x - xDir;
-        y = y - yDir;
+        x = x + xDir;
+        y = y + yDir;
     }
 
     void moveToTop(Dimension size){
@@ -96,6 +101,19 @@ class Vehicle {
             this.width = 70;
             this.length = 35;
             xDir = -1;
+            yDir = 0;
+        }
+    }
+
+    void moveToTopAndRight(Dimension size){
+        x = x + xDir;
+        y = y + yDir;
+
+        if (y < 215){
+            this.width = 70;
+            this.length = 35;
+
+            xDir = 1;
             yDir = 0;
         }
     }
