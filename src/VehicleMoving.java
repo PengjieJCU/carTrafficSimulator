@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.Random;
 
-class Vehicle {
+class VehicleMoving {
     private int x,y;
     private int xDir, yDir;
 
@@ -11,7 +11,7 @@ class Vehicle {
 
     private static final Random random = new Random();
 
-    Vehicle(int x, int y, int width, int length, Color color) {
+    VehicleMoving(int x, int y, int width, int length, Color color) {
         xDir = 1;
         yDir = 0;
         this.x = x;

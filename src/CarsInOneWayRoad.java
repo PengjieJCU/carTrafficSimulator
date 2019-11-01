@@ -1,20 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class OneWayRoad extends JPanel {
-    private Vehicle car;
-    private Vehicle car2;
+public class CarsInOneWayRoad extends JPanel {
+    private VehicleMoving car;
+    private VehicleMoving car2;
 
-    OneWayRoad() {
+    CarsInOneWayRoad() {
         setFocusable(true); // is false by default...
         setPreferredSize(new Dimension(800,200));
         setBackground(new Color(220,200,250));
     }
 
-    void setCar(Vehicle car) {
+    void setCar(VehicleMoving car) {
         this.car = car;
     }
-    void setCar2(Vehicle car2){
+    void setCar2(VehicleMoving car2){
         this.car2 = car2;
     }
 

@@ -7,10 +7,10 @@ import java.util.TimerTask;
 
 public class Main{
     JFrame frame = new JFrame("CarTrafficSimulator");
-    ThreeWaysRoad threeWays = new ThreeWaysRoad();
-    OneWayRoad oneway = new OneWayRoad();
-    FourWaysRoad fourWays = new FourWaysRoad();
-    //    ThreeWaysRoad display1 = new ThreeWaysRoad();
+    CarsInThreeWaysRoad threeWays = new CarsInThreeWaysRoad();
+    CarsInOneWayRoad oneway = new CarsInOneWayRoad();
+    CarsInFourWaysRoad fourWays = new CarsInFourWaysRoad();
+    //    CarsInThreeWaysRoad display1 = new CarsInThreeWaysRoad();
     JPanel trafficBoard = new JPanel();
     JPanel trafficBoard2 = new JPanel();
     JLabel countdownText = new JLabel();
@@ -27,8 +27,8 @@ public class Main{
         frame.remove(trafficBoard);
         frame.remove(trafficBoard2);
 
-        Vehicle car = new Vehicle(100, 150, 70, 35, Color.RED);
-        Vehicle car2 = new Vehicle(850, 100, 70, 35, Color.BLUE);
+        VehicleMoving car = new VehicleMoving(100, 150, 70, 35, Color.RED);
+        VehicleMoving car2 = new VehicleMoving(850, 100, 70, 35, Color.BLUE);
         //frame.add(trafficLight,BorderLayout.WEST);
         oneway.setCar(car);
         oneway.setCar2(car2);
@@ -97,12 +97,12 @@ public class Main{
         frame.remove(fourWays);
         frame.remove(trafficBoard);
         frame.remove(trafficBoard2);
-        Vehicle car3 = new Vehicle(500, 510, 35, 70, Color.gray);
-        Vehicle car4 = new Vehicle(585, -160, 35, 70, Color.yellow);
-        Vehicle car5 = new Vehicle(180, 200, 70, 35, Color.cyan);
-        Vehicle car6 = new Vehicle(100, 200, 70, 35, Color.orange);
-        Vehicle car7 = new Vehicle(500, 600, 35, 70, Color.BLUE);
-        Vehicle car8 = new Vehicle(585, -80, 35, 70, Color.red);
+        VehicleMoving car3 = new VehicleMoving(500, 510, 35, 70, Color.gray);
+        VehicleMoving car4 = new VehicleMoving(585, -160, 35, 70, Color.yellow);
+        VehicleMoving car5 = new VehicleMoving(180, 200, 70, 35, Color.cyan);
+        VehicleMoving car6 = new VehicleMoving(100, 200, 70, 35, Color.orange);
+        VehicleMoving car7 = new VehicleMoving(500, 600, 35, 70, Color.BLUE);
+        VehicleMoving car8 = new VehicleMoving(585, -80, 35, 70, Color.red);
         threeWays.setCar3(car3);
         threeWays.setCar4(car4);
         threeWays.setCar5(car5);
@@ -192,15 +192,15 @@ public class Main{
         frame.remove(threeWays);
         frame.remove(trafficBoard);
         frame.remove(trafficBoard2);
-        Vehicle car9 = new Vehicle(500, 510, 35, 70, Color.gray);
-        Vehicle car10 = new Vehicle(585, -160, 35, 70, Color.yellow);
-        Vehicle car11 = new Vehicle(180, 200, 70, 35, Color.cyan);
-        Vehicle car12 = new Vehicle(100, 200, 70, 35, Color.orange);
-        Vehicle car13 = new Vehicle(500, 600, 35, 70, Color.BLUE);
-        Vehicle car14 = new Vehicle(585, -80, 35, 70, Color.red);
-        Vehicle car15 = new Vehicle(20,200,70,35,Color.magenta);
-//        Vehicle car16 = new Vehicle(500,520,35,70,Color.cyan);
-//        Vehicle car9 = new Vehicle()
+        VehicleMoving car9 = new VehicleMoving(500, 510, 35, 70, Color.gray);
+        VehicleMoving car10 = new VehicleMoving(585, -160, 35, 70, Color.yellow);
+        VehicleMoving car11 = new VehicleMoving(180, 200, 70, 35, Color.cyan);
+        VehicleMoving car12 = new VehicleMoving(100, 200, 70, 35, Color.orange);
+        VehicleMoving car13 = new VehicleMoving(500, 600, 35, 70, Color.BLUE);
+        VehicleMoving car14 = new VehicleMoving(585, -80, 35, 70, Color.red);
+        VehicleMoving car15 = new VehicleMoving(20,200,70,35,Color.magenta);
+//        VehicleMoving car16 = new VehicleMoving(500,520,35,70,Color.cyan);
+//        VehicleMoving car9 = new VehicleMoving()
         fourWays.setCar9(car9);
         fourWays.setCar10(car10);
         fourWays.setCar11(car11);
@@ -334,7 +334,7 @@ public class Main{
     public static void main(String[] args) {
         Main main = new Main();
 //        main.oneWay();
-//        main.ThreeWaysRoad();
+//        main.CarsInThreeWaysRoad();
         main.fourWays();
         main.showGUI();
     }
